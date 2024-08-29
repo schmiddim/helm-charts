@@ -4,11 +4,16 @@
 
 replicaCount: 1
 
+kibanaAlertExporter:
+  insecure: false
+  kibanaUrl: http://localhost:5601
+  kibanaApiSecretName: kibana-api-token
+
 image:
   repository: schmiddim/kibana-alert-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "25a6f33815f869ef5990e63e6980ed23f0898af2"
+  tag: "4d2ba27835e2f0494ee8ae249fa13c43278cba00"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -41,9 +46,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 9116
-
-
+  port: 9101
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -59,16 +62,21 @@ resources: {}
 
 # Additional volumes on the output Deployment definition.
 volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+#  - configMap:
+#      defaultMode: 420
+#      name: ssl-config
+#    name: ssl-config
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+#  - mountPath: /etc/pki/tls/certs/ssl-config-bundle.crt
+#    name: ssl-config
+#    readOnly: true
+#    subPath: ca_bundle.pem
+#  - mountPath: /etc/ssl/certs/ca-certificates.crt
+#    name: ssl-config
+#    readOnly: true
+#    subPath: ca_bundle.pem
 
 nodeSelector: {}
 

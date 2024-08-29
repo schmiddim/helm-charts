@@ -3,16 +3,15 @@ kind: ServiceMonitor
 metadata:
   labels:
     app: kibana-alert-exporter
-  name: kibana-alert-exporter
-  namespace: monitoring
+  name: {{ include "kibana-alert-exporter.fullname" . }}
 spec:
   endpoints:
     - interval: 30s
       path: /metrics
-      targetPort: 9101
+      targetPort: {{ .Values.service.port }}
   namespaceSelector:
     matchNames:
-      - monitoring
+      - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      app: kibana-exporter
+      app.kubernetes.io/name: kibana-alert-exporter
