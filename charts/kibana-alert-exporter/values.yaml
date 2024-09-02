@@ -13,7 +13,7 @@ image:
   repository: schmiddim/kibana-alert-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "4d2ba27835e2f0494ee8ae249fa13c43278cba00"
+  tag: "0d1841275c3865ee3b21c088d922350d344f748f"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -83,3 +83,19 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+prometheusRule:
+  enabled: false
+  additionalLabels: {}
+  namespace: ""
+  rules:
+    []
+## These are just examples rules, please adapt them to your needs.
+## Make sure to constraint the rules to the current service.
+#    - alert: No Kibana Alert Exporter Data for 5 Minutes
+#      expr: count ((active_alerts offset 5m) unless active_alerts) >0
+#      labels:
+#        severity: warning
+#      annotations:
+#        summary: "There are no metrics about Kibana Alerts"
+#        description: "Please check the status  of the exporter"
