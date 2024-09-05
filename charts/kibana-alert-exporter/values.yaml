@@ -48,17 +48,13 @@ service:
   type: ClusterIP
   port: 9101
 
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
 
 # Additional volumes on the output Deployment definition.
 volumes: []
@@ -92,10 +88,3 @@ prometheusRule:
     []
 ## These are just examples rules, please adapt them to your needs.
 ## Make sure to constraint the rules to the current service.
-#    - alert: No Kibana Alert Exporter Data for 5 Minutes
-#      expr: count ((active_alerts offset 5m) unless active_alerts) >0
-#      labels:
-#        severity: warning
-#      annotations:
-#        summary: "There are no metrics about Kibana Alerts"
-#        description: "Please check the status  of the exporter"
