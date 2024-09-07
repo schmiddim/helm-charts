@@ -41,6 +41,9 @@ spec:
             {{- if  eq .Values.kibanaAlertExporter.insecure  true }}
             - "--insecure"
             {{- end }}
+ {{- range .Values.kibanaAlertExporter.labelsToExport }}
+            - "-l{{ . }}"
+{{- end }}
           envFrom:
             - secretRef:
                 name: {{ .Values.kibanaAlertExporter.kibanaApiSecretName }}

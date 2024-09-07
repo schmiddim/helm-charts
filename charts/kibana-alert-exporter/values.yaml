@@ -8,12 +8,13 @@ kibanaAlertExporter:
   insecure: false
   kibanaUrl: http://localhost:5601
   kibanaApiSecretName: kibana-api-token
+  labelsToExport: [] # Add "add tags in the form key=val to kibana alerts to add them as labelsToExport to the metric")
 
 image:
   repository: schmiddim/kibana-alert-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "455fc1d5fc52b5a6686343c0aee68b4717493cf2"
+  tag: "c83f53cec4ffdb3dd30ef94b740fd751c5cc87e5"
 
 imagePullSecrets: []
 nameOverride: ""
