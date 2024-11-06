@@ -14,7 +14,7 @@ image:
   repository: schmiddim/kibana-alert-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "4992cf40808d37fdf3f3acf9352cc5718c28be23"
+  tag: "bf6ace7b1b85954319468bfb409614eb3b09b6d2"
 
 imagePullSecrets: []
 nameOverride: ""
