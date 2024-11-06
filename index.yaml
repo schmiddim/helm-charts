@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   kibana-alert-exporter:
   - apiVersion: v2
+    appVersion: 1.17.2
+    created: "2024-11-06T10:56:03.571795988Z"
+    description: Helm Chart for the Kibana Alert Exporter
+    digest: 22ebe97919dbbd95edfdf79e641e5ab3e3a8d75660000921b2d5bf38082d9f86
+    name: kibana-alert-exporter
+    type: application
+    urls:
+    - https://github.com/schmiddim/helm-charts/releases/download/kibana-alert-exporter-0.2.1/kibana-alert-exporter-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
     appVersion: 1.17.1
     created: "2024-09-16T14:16:15.699832122Z"
     description: Helm Chart for the Kibana Alert Exporter
@@ -101,4 +111,4 @@ entries:
     urls:
     - https://github.com/schmiddim/kibana-alert-exporter-helm-chart/releases/download/kibana-alert-exporter-0.1.1/kibana-alert-exporter-0.1.1.tgz
     version: 0.1.1
-generated: "2024-09-16T14:16:15.699875363Z"
+generated: "2024-11-06T10:56:03.571836764Z"
