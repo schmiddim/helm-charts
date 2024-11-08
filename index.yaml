@@ -114,6 +114,16 @@ entries:
   loggi-mc-logface:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-11-08T12:16:37.748703741Z"
+    description: A Helm chart for Kubernetes
+    digest: a513399bf8b859f0c13b02e954aebf65d614a140c6d1fad09e12f18bbc774a4c
+    name: loggi-mc-logface
+    type: application
+    urls:
+    - https://github.com/schmiddim/helm-charts/releases/download/loggi-mc-logface-0.1.1/loggi-mc-logface-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-11-08T11:58:52.999046357Z"
     description: A Helm chart for Kubernetes
     digest: 8ffbc2a72560c4de90e64a3e79e085722a78b7e08cd991863c439d732c90bac1
@@ -122,4 +132,4 @@ entries:
     urls:
     - https://github.com/schmiddim/helm-charts/releases/download/loggi-mc-logface-0.1.0/loggi-mc-logface-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-08T11:58:52.999074019Z"
+generated: "2024-11-08T12:16:37.748734468Z"
