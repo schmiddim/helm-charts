@@ -142,4 +142,15 @@ entries:
     urls:
     - https://github.com/schmiddim/helm-charts/releases/download/loggi-mc-logface-0.1.0/loggi-mc-logface-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-08T12:47:44.71574034Z"
+  spacelift-pushgateway:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-11-20T15:19:10.353585396Z"
+    description: A Helm chart for Kubernetes
+    digest: efe32e82bc3a19d9af760f3a9e53965abf2a0789048d8d4023410c811726cdde
+    name: spacelift-pushgateway
+    type: application
+    urls:
+    - https://github.com/schmiddim/helm-charts/releases/download/spacelift-pushgateway-0.1.0/spacelift-pushgateway-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-11-20T15:19:10.353637944Z"
