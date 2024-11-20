@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "spacelift-pushgateway.fullname" . }}-test-connection"
+  labels:
+    {{- include "spacelift-pushgateway.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "spacelift-pushgateway.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
