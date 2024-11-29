@@ -145,6 +145,16 @@ entries:
   spacelift-pushgateway:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-11-29T13:23:45.994304994Z"
+    description: A Helm chart for Kubernetes
+    digest: 571c9568104afdf441710fda614b369827974ba3c351bfb11615acdcb8d3bec1
+    name: spacelift-pushgateway
+    type: application
+    urls:
+    - https://github.com/schmiddim/helm-charts/releases/download/spacelift-pushgateway-0.1.1/spacelift-pushgateway-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-11-20T15:19:10.353585396Z"
     description: A Helm chart for Kubernetes
     digest: efe32e82bc3a19d9af760f3a9e53965abf2a0789048d8d4023410c811726cdde
@@ -153,4 +163,4 @@ entries:
     urls:
     - https://github.com/schmiddim/helm-charts/releases/download/spacelift-pushgateway-0.1.0/spacelift-pushgateway-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-20T15:19:10.353637944Z"
+generated: "2024-11-29T13:23:45.994337976Z"
