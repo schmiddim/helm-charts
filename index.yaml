@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  go-mem-thief:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-02-06T22:33:53.449905302Z"
+    description: A Helm chart for Kubernetes
+    digest: 548d1165b44234e889f9bbf300fd1a75f90a0f40e7c1792fb711a747cf104a83
+    name: go-mem-thief
+    type: application
+    urls:
+    - https://github.com/schmiddim/helm-charts/releases/download/go-mem-thief-0.1.0/go-mem-thief-0.1.0.tgz
+    version: 0.1.0
   kibana-alert-exporter:
   - apiVersion: v2
     appVersion: 1.17.2
@@ -163,4 +174,4 @@ entries:
     urls:
     - https://github.com/schmiddim/helm-charts/releases/download/spacelift-pushgateway-0.1.0/spacelift-pushgateway-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-29T13:23:45.994337976Z"
+generated: "2025-02-06T22:33:53.4499418Z"
