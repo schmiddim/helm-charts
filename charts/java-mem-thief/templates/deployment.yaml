@@ -43,6 +43,7 @@ spec:
               value: "-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+ExitOnOutOfMemoryError -XX:+UseG1GC"
           args:
             - "-jar"
+            - "-javaagent:/jmx_exporter.jar=2112:/app/jmx_exporter_config.yml"
             - "app.jar"
             - "--sourcePath={{ .Values.sourcePath }}"
             - "--destinationPath={{ .Values.destinationPath }}"

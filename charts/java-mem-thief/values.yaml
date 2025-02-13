@@ -6,13 +6,13 @@ replicaCount: 1
 fileSize: 250
 interval: 15
 runs: 100
-sourcePath: /tmp-mem/source.bin
+sourcePath: /tmp/source.bin
 destinationPath: /tmp-memtarget.bin
 
 image:
   repository: schmiddim/java-mem-thief
   pullPolicy: IfNotPresent
-  tag: "6a42852ed1bfc8d4006653429bd0f1a868c7261c"
+  tag: "b47893bab8c10bd2a47af33c1e29ba8a85b909e0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -45,7 +45,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 2112
 
 ingress:
   enabled: false
