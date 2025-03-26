@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  blackbox-operator:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-03-26T20:49:28.322913568Z"
+    description: A Helm chart for Kubernetes
+    digest: 4b8b7829b473db81a86c895ac7652da5aeb613a57dd1b0a944df2ac8f987f3c1
+    name: blackbox-operator
+    type: application
+    urls:
+    - https://github.com/schmiddim/helm-charts/releases/download/blackbox-operator-0.1.1/blackbox-operator-0.1.1.tgz
+    version: 0.1.1
   go-mem-thief:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -235,4 +246,4 @@ entries:
     urls:
     - https://github.com/schmiddim/helm-charts/releases/download/spacelift-pushgateway-0.1.0/spacelift-pushgateway-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-13T14:43:45.874942793Z"
+generated: "2025-03-26T20:49:28.322955527Z"
