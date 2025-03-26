@@ -4,8 +4,17 @@
 
 replicaCount: 1
 
+
+operatorConfig: |
+  logLevel: "info"
+  module: "http_2xx"
+  interval: "2s"
+  scrapeTimeout: "1s"
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: blackbox-exporter
 image:
-  repository: schmiddim/java-mem-thief
+  repository: schmiddim/blackbox-operator
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "f5565c17821bbef7d71c3a4f7537ed99137f6da4"
@@ -41,7 +50,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8081
 
 ingress:
   enabled: false
@@ -73,12 +82,13 @@ resources: {}
 
 livenessProbe:
   httpGet:
-    path: /
+    path: /healthz
     port: http
 readinessProbe:
   httpGet:
-    path: /
+    path: /healthz
     port: http
+
 
 autoscaling:
   enabled: false
@@ -91,13 +101,13 @@ autoscaling:
 volumes:
   - configMap:  # example config
       defaultMode: 420
-      name: blackbox-operator-example-config
-    name: blackbox-operator-example-config
+      name: blackbox-operator-config
+    name: blackbox-operator-config
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
   - mountPath: /config.yaml     # example config
-    name: blackbox-operator-example-config
+    name: blackbox-operator-config
     readOnly: true
     subPath: config.yaml
 # - name: foo

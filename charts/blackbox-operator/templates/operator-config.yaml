@@ -1,0 +1,8 @@
+{{- $fullName := include "blackbox-operator.fullname" . -}}
+apiVersion: v1
+data:
+  config.yaml:
+    {{ .Values.operatorConfig | toYaml | nindent 4 }}
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
