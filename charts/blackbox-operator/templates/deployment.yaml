@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "java-mem-thief.fullname" . }}
+  name: {{ include "blackbox-operator.fullname" . }}
   labels:
-    {{- include "java-mem-thief.labels" . | nindent 4 }}
+    {{- include "blackbox-operator.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "java-mem-thief.selectorLabels" . | nindent 6 }}
+      {{- include "blackbox-operator.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,8 +18,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "java-mem-thief.labels" . | nindent 8 }}
-	{{- with .Values.podLabels }}
+        {{- include "blackbox-operator.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "java-mem-thief.serviceAccountName" . }}
+      serviceAccountName: {{ include "blackbox-operator.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -36,32 +36,14 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["java"]
-          env:
-            # JVM optimization flags
-            - name: JAVA_OPTS
-              value: "-XX:+UseContainerSupport -XX:MaxRAMPercentage=100.0 -XX:+ExitOnOutOfMemoryError -XX:+UseG1GC"
-          args:
-            - "-jar"
-            - "-javaagent:/jmx_exporter.jar=2112:/app/jmx_exporter_config.yml"
-            - "app.jar"
-            - "--sourcePath={{ .Values.sourcePath }}"
-            - "--destinationPath={{ .Values.destinationPath }}"
-            - "--size={{ .Values.fileSize }}"
-            - "--interval={{ .Values.interval }}"
-            - "--runs={{ .Values.runs}}"
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}

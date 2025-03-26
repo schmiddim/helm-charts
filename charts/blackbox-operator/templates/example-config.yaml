@@ -1,0 +1,14 @@
+{{- $fullName := include "blackbox-operator.fullname" . -}}
+apiVersion: v1
+data:
+  config.yaml: |-
+    logLevel: "info"
+    module: "http_2xx"
+    interval: "2s"
+    scrapeTimeout: "1s"
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: blackbox-exporter
+kind: ConfigMap
+metadata:
+  name: {{ $fullName }}-example-config
