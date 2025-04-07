@@ -27,7 +27,7 @@ image:
   repository: schmiddim/blackbox-operator
   pullPolicy: IfNotPresent
   # https://hub.docker.com/r/schmiddim/blackbox-operator/tags
-  tag: "ce63a67fea9dc93faa5e800f4c36708ca9a7905d"
+  tag: "8eccc7beda3bf5bbd4dfbbd8964beada9a68d401"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -80,21 +80,22 @@ ingress:
 
 resources:
   limits:
-    cpu: 100m
-    memory: 100Mi
-  requests:
     cpu: 50m
-    memory: 50Mi
+    memory: 300Mi
+  requests:
+    cpu: 25m
+    memory: 75Mi
 
 livenessProbe:
   httpGet:
     path: /healthz
     port: http
+
 readinessProbe:
   httpGet:
     path: /healthz
     port: http
-
+  initialDelaySeconds: 4
 
 autoscaling:
   enabled: false
